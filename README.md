@@ -26,13 +26,17 @@ Cada push a `main` ejecuta el workflow `.github/workflows/deploy.yml` y publica 
 
 1. **Settings → Pages**
    - **Source:** GitHub Actions
-   - **Custom domain:** agrega cada dominio (ej. `intercert.co`, `intercert.mx`, …)
+   - Si el deploy falla con `404 Not Found`, entra aquí y confirma que Pages esté activado con origen **GitHub Actions** (no “Deploy from branch”).
 
 2. **Settings → Actions → General**
    - **Workflow permissions:** *Read and write permissions*
    - Marca **Allow GitHub Actions to create and approve pull requests** si tu org lo exige
 
-3. **DNS en cada registrador** (mismo destino para todos los dominios):
+3. **Settings → Environments → github-pages**
+   - Debe existir el environment `github-pages` (GitHub lo crea al activar Pages).
+   - Si no aparece, vuelve a **Settings → Pages** y guarda con source **GitHub Actions**.
+
+4. **DNS en cada registrador** (mismo destino para todos los dominios):
 
    | Tipo  | Nombre | Valor |
    |-------|--------|-------|
@@ -43,6 +47,8 @@ Cada push a `main` ejecuta el workflow `.github/workflows/deploy.yml` y publica 
    | A     | `@` | `185.199.111.153` |
 
    Usa CNAME para subdominios (`www`) o apex según permita tu registrador. GitHub validará HTTPS automáticamente.
+
+5. **Custom domains** (en Settings → Pages): agrega cada dominio (`intercert.co`, `intercert.mx`, …).
 
 ### Dominios configurados
 
