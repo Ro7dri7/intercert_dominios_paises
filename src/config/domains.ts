@@ -1,15 +1,14 @@
 /**
- * Dominios TLD libres de INTERCERT por país.
- * Todos apuntan al mismo sitio estático (GitHub Pages).
+ * Dominios TLD de INTERCERT por país.
+ * Todos apuntan al mismo sitio estático en el servidor.
  */
 export const COUNTRY_DOMAINS = [
     { code: 'co', country: 'Colombia', domain: 'intercert.co' },
+    { code: 'pe', country: 'Perú', domain: 'intercert.com.pe' },
     { code: 'mx', country: 'México', domain: 'intercert.mx' },
+    { code: 'cr', country: 'Costa Rica', domain: 'intercert.cr' },
     { code: 'ec', country: 'Ecuador', domain: 'intercert.ec' },
     { code: 'pa', country: 'Panamá', domain: 'intercert.pa' },
-    { code: 'pe', country: 'Perú', domain: 'intercert.com.pe' },
-    { code: 'cr', country: 'Costa Rica', domain: 'intercert.cr' },
-    { code: 'es', country: 'España', domain: 'intercert.es' },
 ] as const;
 
 export const ALL_DEPLOY_DOMAINS = COUNTRY_DOMAINS.map((entry) => entry.domain);

@@ -31,8 +31,8 @@ sudo systemctl reload nginx
 
 echo ""
 echo "Listo. Esta landing responde SOLO en:"
-echo "  intercert.co, intercert.mx, intercert.ec, intercert.pa,"
-echo "  intercert.com.pe, intercert.cr, intercert.es"
+echo "  intercert.co, intercert.com.pe, intercert.mx, intercert.cr,"
+echo "  intercert.ec, intercert.pa"
 echo ""
 echo "NO se modificaron configs de intercertlatam.com ni portal.intercertlatam.com"
 echo "Verifica esos sitios en el navegador después del reload."
