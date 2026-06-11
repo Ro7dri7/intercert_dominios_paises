@@ -1,16 +1,9 @@
-name: Deploy landing to GitHub Pages
+name: Deploy landing to server
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
-permissions:
-  contents: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -31,9 +24,31 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Pack dist
+        run: tar -czf dist.tar.gz -C dist .
+
+      - name: Upload build to server
+        uses: appleboy/scp-action@v0.1.7
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          source: dist.tar.gz
+          target: /tmp/intercert-landing-deploy
+
+      - name: Extract on server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            DEPLOY_PATH="${{ secrets.DEPLOY_PATH }}"
+            mkdir -p "$DEPLOY_PATH"
+            find "$DEPLOY_PATH" -mindepth 1 -delete
+            tar -xzf /tmp/intercert-landing-deploy/dist.tar.gz -C "$DEPLOY_PATH"
+            rm -f /tmp/intercert-landing-deploy/dist.tar.gz
+            echo "Deploy OK -> $DEPLOY_PATH"
