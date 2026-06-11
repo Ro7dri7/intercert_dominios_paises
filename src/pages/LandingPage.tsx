@@ -10,7 +10,8 @@ import {
     FiCheckCircle,
     FiMenu,
     FiX,
-    FiSearch,
+    FiZap,
+    FiBriefcase,
 } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
 import { FaStar, FaWhatsapp, FaFacebookF, FaInstagram } from 'react-icons/fa';
@@ -61,36 +62,36 @@ const ACHIEVEMENT_SLIDES: {
     id: number;
     gradient: string;
     icon: IconType;
-    value: string;
-    label: string;
+    title: string;
+    detail: string;
 }[] = [
     {
         id: 1,
         gradient: 'linear-gradient(180deg, #1A43D5 0%, #5B8AE8 50%, #C3E9F9 100%)',
-        icon: FiAward,
-        value: '+10 Años',
-        label: 'de Experiencia',
+        icon: FiGlobe,
+        title: 'Liderazgo Internacional',
+        detail: 'Contamos con presencia activa y auditores en más de 8 países.',
     },
     {
         id: 2,
         gradient: 'linear-gradient(180deg, #12225D 0%, #2548C3 55%, #8AB1ED 100%)',
-        icon: FiUsers,
-        value: '+500',
-        label: 'Empresas Certificadas',
+        icon: FiBriefcase,
+        title: 'Trayectoria Comprobada',
+        detail: 'Más de 500 empresas han elevado sus estándares trabajando con nosotros.',
     },
     {
         id: 3,
         gradient: 'linear-gradient(180deg, #1A43D5 0%, #8AB1ED 40%, #C3E9F9 100%)',
-        icon: FiGlobe,
-        value: 'Presencia',
-        label: 'Internacional',
+        icon: FiShield,
+        title: 'Cobertura Integral ISO',
+        detail: 'Especialistas en certificar normativas clave como ISO 9001, 14001, 27001 y 45001.',
     },
     {
         id: 4,
         gradient: 'linear-gradient(180deg, #036BF2 0%, #1A43D5 60%, #8AB1ED 100%)',
-        icon: FiSearch,
-        value: 'Auditores',
-        label: 'Especializados',
+        icon: FiZap,
+        title: 'Procesos Ágiles',
+        detail: 'Auditorías y emisión de certificados optimizados por tecnología de punta.',
     },
 ];
 
@@ -283,8 +284,8 @@ const LandingPage = () => {
                                 >
                                     <div className="lp-achievements__chart-content">
                                         <Icon className="lp-achievements__chart-icon" aria-hidden="true" />
-                                        <span className="lp-achievements__chart-value">{slide.value}</span>
-                                        <span className="lp-achievements__chart-label">{slide.label}</span>
+                                        <span className="lp-achievements__chart-value">{slide.title}</span>
+                                        <span className="lp-achievements__chart-label">{slide.detail}</span>
                                     </div>
                                 </div>
                             );
