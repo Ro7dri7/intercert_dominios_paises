@@ -32,11 +32,10 @@ npm run dev
 | País | Dominio |
 |------|---------|
 | Colombia | intercert.co |
+| Perú | intercert.com.pe |
 | México | intercert.mx |
+| Costa Rica | intercert.cr |
 | Ecuador | intercert.ec |
 | Panamá | intercert.pa |
-| Perú | intercert.com.pe |
-| Costa Rica | intercert.cr |
-| España | intercert.es |
 
 **No afecta** a `intercertlatam.com` ni `portal.intercertlatam.com`.
