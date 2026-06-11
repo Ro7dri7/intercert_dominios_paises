@@ -38,8 +38,8 @@
 /* ─── Hero ─── */
 .lp-hero {
   position: relative;
-  min-height: 680px;
-  max-height: 720px;
+  min-height: 860px;
+  max-height: 920px;
   background: linear-gradient(270deg, var(--lp-navy) 5.29%, var(--lp-blue) 92.31%);
   overflow: hidden;
   display: flex;
@@ -223,10 +223,10 @@
   z-index: 5;
   flex: 1;
   display: grid;
-  grid-template-columns: 0.88fr 1.22fr;
+  grid-template-columns: 0.82fr 1.18fr;
   align-items: stretch;
-  gap: 12px;
-  padding: 8px 40px 0;
+  gap: 0;
+  padding: 0 0 0 40px;
   max-width: var(--lp-max);
   margin: 0 auto;
   width: 100%;
@@ -234,8 +234,11 @@
 }
 
 .lp-hero__text {
+  position: relative;
+  z-index: 7;
   align-self: center;
   padding-bottom: 24px;
+  padding-right: 16px;
 }
 
 .lp-hero__text h1 {
@@ -305,26 +308,28 @@
 }
 
 .lp-hero__image {
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: -24px;
+  width: 58%;
+  max-width: 820px;
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  align-self: stretch;
-  height: 100%;
-  min-height: 0;
+  justify-content: center;
   overflow: visible;
-  margin-bottom: 0;
+  pointer-events: none;
+  z-index: 6;
 }
 
 .lp-hero__image img {
-  width: 100%;
+  width: auto;
   height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: none;
+  min-height: 760px;
   object-fit: contain;
   object-position: bottom center;
   display: block;
-  margin-bottom: 0;
   filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.2));
 }
 
@@ -1072,15 +1077,25 @@
     height: 28px;
   }
 
+  .lp-hero__content {
+    padding: 0 24px;
+  }
+
   .lp-hero__image {
-    min-height: 280px;
-    max-height: 420px;
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    min-height: 340px;
+    pointer-events: auto;
   }
 
   .lp-hero__image img {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    min-height: 0;
+    max-height: 480px;
   }
 
   .lp-tv-footer__grid {

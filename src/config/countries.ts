@@ -10,6 +10,9 @@ export interface CountryConfig {
 
 export const PORTAL_BASE = 'https://intercertlatam.com';
 
+/** Verificación de certificado — misma URL global para todos los dominios TLD */
+export const VERIFY_CERTIFICATE_URL = `${PORTAL_BASE}/verify-certificate`;
+
 export const COUNTRY_CONFIGS: CountryConfig[] = [
     {
         code: 'co',

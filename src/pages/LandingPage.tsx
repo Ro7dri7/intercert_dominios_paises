@@ -15,7 +15,11 @@ import {
 } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
-import { buildPortalUrl, getCountryFromHostname } from '../config/countries';
+import {
+    buildPortalUrl,
+    getCountryFromHostname,
+    VERIFY_CERTIFICATE_URL,
+} from '../config/countries';
 import LandingFooter from '../components/LandingFooter';
 import './LandingPage.css';
 
@@ -247,7 +251,7 @@ const LandingPage = () => {
                         </li>
                     </ul>
 
-                    <a href={portal('/verify-certificate')} className="lp-nav__verify">
+                    <a href={VERIFY_CERTIFICATE_URL} className="lp-nav__verify">
                         Verificar Certificado
                     </a>
 
